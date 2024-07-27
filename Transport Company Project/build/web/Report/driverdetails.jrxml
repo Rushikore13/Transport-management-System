@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="driverdetails" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a40a2cb0-0887-4c46-a7ac-b8c1cc0100c0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     driver_registration.`Driver_Id` AS driver_registration_Driver_Id,
+     driver_registration.`Driver_Name` AS driver_registration_Driver_Name,
+     driver_registration.`Contact` AS driver_registration_Contact,
+     driver_registration.`Address` AS driver_registration_Address,
+     driver_registration.`Experience` AS driver_registration_Experience,
+     driver_registration.`photo` AS driver_registration_photo,
+     driver_registration.`Licence_No` AS driver_registration_Licence_No
+FROM
+     `driver_registration` driver_registration]]>
+	</queryString>
+	<field name="driver_registration_Driver_Id" class="java.lang.Integer"/>
+	<field name="driver_registration_Driver_Name" class="java.lang.String"/>
+	<field name="driver_registration_Contact" class="java.lang.Long"/>
+	<field name="driver_registration_Address" class="java.lang.String"/>
+	<field name="driver_registration_Experience" class="java.lang.String"/>
+	<field name="driver_registration_photo" class="java.lang.String"/>
+	<field name="driver_registration_Licence_No" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="311e0494-6d7d-4fc4-9955-0a2a999944b5"/>
+				<imageExpression><![CDATA["leaf_banner_red.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="a605503a-fbb3-43e7-accc-9f55e71377be"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Driver Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="cd536ebf-cd2c-435e-b474-02a41616e537"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="79" height="15" uuid="1804300a-930c-4308-adf0-8ea56039862c"/>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="79" y="19" width="79" height="15" uuid="be437551-5a11-44d1-b846-9db32a4724f2"/>
+				<text><![CDATA[Driver_Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="19" width="79" height="15" uuid="c1058fe3-814b-4fca-99c0-12a02b6be161"/>
+				<text><![CDATA[Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="19" width="79" height="15" uuid="52dc66e5-3869-40dc-a834-efd8c816944a"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="316" y="19" width="79" height="15" uuid="94e2ca9e-ca47-4523-b588-6b1a9335802c"/>
+				<text><![CDATA[Experience]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="395" y="19" width="79" height="15" uuid="2d55a6d9-428e-44c1-91f4-341816e28c26"/>
+				<text><![CDATA[photo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="19" width="79" height="15" uuid="3386bc09-848f-4c9a-8a6a-3b62f835ea62"/>
+				<text><![CDATA[Licence_No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1c6b7fdd-8e8e-4ead-9f3b-8eefe6615f53"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="79" height="15" uuid="c9fbba90-5684-4fd2-ba23-05c0838f6795"/>
+				<textFieldExpression><![CDATA[$F{driver_registration_Driver_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="79" y="0" width="79" height="15" uuid="d5e7f49b-342d-47f4-b160-f7a77e528129"/>
+				<textFieldExpression><![CDATA[$F{driver_registration_Driver_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="158" y="0" width="79" height="15" uuid="2a69b23e-20e8-43eb-81de-c60f88160eb8"/>
+				<textFieldExpression><![CDATA[$F{driver_registration_Contact}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="79" height="15" uuid="077254dc-b963-43fe-937e-3763872eebb3"/>
+				<textFieldExpression><![CDATA[$F{driver_registration_Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="316" y="0" width="79" height="15" uuid="9f0c0fd0-5055-41a6-9320-240090175280"/>
+				<textFieldExpression><![CDATA[$F{driver_registration_Experience}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="395" y="0" width="79" height="15" uuid="592fbc05-06cf-450b-874d-dada8b066c12"/>
+				<textFieldExpression><![CDATA[$F{driver_registration_photo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="79" height="15" uuid="3c60230a-c59d-4669-b8cd-a7ec009b46ee"/>
+				<textFieldExpression><![CDATA[$F{driver_registration_Licence_No}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="85e91ab5-1b16-47f1-bf1f-785aea38eec1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="94109049-619d-4ef6-b883-9590849b9cab"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="3ff15bce-f1a1-4142-bb15-2af720f72632"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="d9ca3e8e-3a9e-4b13-9f2d-dfc44a19f54e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,231 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema online_transport_system
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema online_transport_system
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `online_transport_system` DEFAULT CHARACTER SET utf8 ;
+USE `online_transport_system` ;
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`booking`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`booking` (
+  `Cust_Id` INT(9) NULL DEFAULT NULL,
+  `Cust_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Address` VARCHAR(100) NULL DEFAULT NULL,
+  `Contact` BIGINT(10) NULL DEFAULT NULL,
+  `Vehicle_No` VARCHAR(20) NULL DEFAULT NULL,
+  `Units` VARCHAR(50) NULL DEFAULT NULL,
+  `Driver_Id` INT(10) NULL DEFAULT NULL,
+  `Driver_Name` VARCHAR(45) NULL DEFAULT NULL,
+  `T_Bill` FLOAT NULL DEFAULT NULL,
+  `uid` INT(11) NULL DEFAULT NULL,
+  `rate` INT(11) NULL DEFAULT NULL,
+  `bdate` DATE NULL DEFAULT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Email` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`branch_manager`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`branch_manager` (
+  `Manager_Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Manager_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Branch_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Address` VARCHAR(100) NULL DEFAULT NULL,
+  `Email` VARCHAR(50) NULL DEFAULT NULL,
+  `Contact` BIGINT(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`Manager_Id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`customer_registration`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`customer_registration` (
+  `Cust_Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `First_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Last_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Contact` BIGINT(10) NULL DEFAULT NULL,
+  `Email` VARCHAR(50) NULL DEFAULT NULL,
+  `Address` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`Cust_Id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`driver_registration`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`driver_registration` (
+  `Driver_Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Driver_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Contact` BIGINT(10) NULL DEFAULT NULL,
+  `Address` VARCHAR(100) NULL DEFAULT NULL,
+  `Experience` VARCHAR(100) NULL DEFAULT NULL,
+  `photo` VARCHAR(500) NULL DEFAULT NULL,
+  `Licence_No` VARCHAR(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`Driver_Id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`feedback`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`feedback` (
+  `Cust_Id` INT(9) NULL DEFAULT NULL,
+  `Cust_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Email` VARCHAR(50) NULL DEFAULT NULL,
+  `Contact` BIGINT(10) NULL DEFAULT NULL,
+  `Feedback` VARCHAR(100) NULL DEFAULT NULL,
+  `uid` INT(11) NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`forgotpass`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`forgotpass` (
+  `email` INT(9) NULL DEFAULT NULL,
+  `pass` VARCHAR(8) NULL DEFAULT NULL,
+  `npass` VARCHAR(9) NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`manage_vehicle`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`manage_vehicle` (
+  `Vehicle_No` INT(11) NOT NULL AUTO_INCREMENT,
+  `Vehicle_Year` INT(9) NULL DEFAULT NULL,
+  `Vehicle_Color` VARCHAR(50) NULL DEFAULT NULL,
+  `Vehicle_Img` VARCHAR(500) NULL DEFAULT NULL,
+  `Booked_date` DATE NULL DEFAULT NULL,
+  `Model` VARCHAR(50) NULL DEFAULT NULL,
+  `Driver_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Route` VARCHAR(50) NULL DEFAULT NULL,
+  `Driver_Contact` BIGINT(10) NULL DEFAULT NULL,
+  `Rate` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`Vehicle_No`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`payment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`payment` (
+  `payer_id` INT(9) NULL DEFAULT NULL,
+  `payer_name` VARCHAR(20) NULL DEFAULT NULL,
+  `email` VARCHAR(50) NULL DEFAULT NULL,
+  `card_no` BIGINT(12) NULL DEFAULT NULL,
+  `Amount` BIGINT(20) NULL DEFAULT NULL,
+  `cvv` INT(10) NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`query`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`query` (
+  `Cust_Id` INT(9) NULL DEFAULT NULL,
+  `Cust_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Email` VARCHAR(50) NULL DEFAULT NULL,
+  `Contact` BIGINT(10) NULL DEFAULT NULL,
+  `Quefeedback` VARCHAR(100) NULL DEFAULT NULL,
+  `uid` INT(11) NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`signup_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`signup_tbl` (
+  `Admin_Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `First_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Last_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Email` VARCHAR(50) NULL DEFAULT NULL,
+  `Pass` VARCHAR(8) NULL DEFAULT NULL,
+  `contact` BIGINT(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`Admin_Id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`transport_info`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`transport_info` (
+  `uni_Slip_No` INT(11) NOT NULL AUTO_INCREMENT,
+  `Model` VARCHAR(20) NULL DEFAULT NULL,
+  `Vehicle_No` VARCHAR(20) NULL DEFAULT NULL,
+  `Units` VARCHAR(50) NULL DEFAULT NULL,
+  `Destination` VARCHAR(100) NULL DEFAULT NULL,
+  `Trip_Start_Date` DATE NULL DEFAULT NULL,
+  `Trip_End_Date` DATE NULL DEFAULT NULL,
+  `Driver_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Cust_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Cust_Address` VARCHAR(100) NULL DEFAULT NULL,
+  `Contact` BIGINT(10) NULL DEFAULT NULL,
+  `Transport_Amount` FLOAT NULL DEFAULT NULL,
+  PRIMARY KEY (`uni_Slip_No`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`upi_payment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`upi_payment` (
+  `UPI_Id` VARCHAR(20) NULL DEFAULT NULL,
+  `amount` INT(11) NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `online_transport_system`.`user_signup_tbl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `online_transport_system`.`user_signup_tbl` (
+  `User_Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `First_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Last_Name` VARCHAR(50) NULL DEFAULT NULL,
+  `Email` VARCHAR(50) NULL DEFAULT NULL,
+  `Pass` VARCHAR(8) NULL DEFAULT NULL,
+  `contact` BIGINT(10) NULL DEFAULT NULL,
+  `uid` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`User_Id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

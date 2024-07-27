@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="transport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="030943b1-f6a6-419c-a232-4c14560629d7">
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     transport_info.`uni_Slip_No` AS transport_info_uni_Slip_No,
+     transport_info.`Model` AS transport_info_Model,
+     transport_info.`Vehicle_No` AS transport_info_Vehicle_No,
+     transport_info.`Units` AS transport_info_Units,
+     transport_info.`Destination` AS transport_info_Destination,
+     transport_info.`Trip_Start_Date` AS transport_info_Trip_Start_Date,
+     transport_info.`Trip_End_Date` AS transport_info_Trip_End_Date,
+     transport_info.`Driver_Name` AS transport_info_Driver_Name,
+     transport_info.`Cust_Name` AS transport_info_Cust_Name,
+     transport_info.`Cust_Address` AS transport_info_Cust_Address,
+     transport_info.`Contact` AS transport_info_Contact,
+     transport_info.`Transport_Amount` AS transport_info_Transport_Amount
+FROM
+     `transport_info` transport_info]]>
+	</queryString>
+	<field name="transport_info_uni_Slip_No" class="java.lang.Integer"/>
+	<field name="transport_info_Model" class="java.lang.String"/>
+	<field name="transport_info_Vehicle_No" class="java.lang.String"/>
+	<field name="transport_info_Units" class="java.lang.String"/>
+	<field name="transport_info_Destination" class="java.lang.String"/>
+	<field name="transport_info_Trip_Start_Date" class="java.sql.Date"/>
+	<field name="transport_info_Trip_End_Date" class="java.sql.Date"/>
+	<field name="transport_info_Driver_Name" class="java.lang.String"/>
+	<field name="transport_info_Cust_Name" class="java.lang.String"/>
+	<field name="transport_info_Cust_Address" class="java.lang.String"/>
+	<field name="transport_info_Contact" class="java.lang.Long"/>
+	<field name="transport_info_Transport_Amount" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="9ff79e41-4a96-4502-88a8-28c1f9568d69"/>
+				<imageExpression><![CDATA["leaf_banner_red.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="97098512-e122-4b2a-a742-735bc3a98719"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Leaf Red Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="117" y="46" width="157" height="22" uuid="28051387-bd4f-47b7-baeb-11a0a1761d58"/>
+				<text><![CDATA[Leaf Red SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="8f813a76-dbb0-4759-996a-7e4ed5adbae0"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="46" height="15" uuid="41d5259f-1f30-4adf-a407-c87bfa7dd2e7"/>
+				<text><![CDATA[transport_info_uni_Slip_No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="46" y="19" width="46" height="15" uuid="bde7ffaf-6f01-4ba2-bed5-f755ad99d572"/>
+				<text><![CDATA[transport_info_Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="46" height="15" uuid="af358f99-ef45-4e5c-a47c-1ab13cfe06f3"/>
+				<text><![CDATA[transport_info_Vehicle_No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="138" y="19" width="46" height="15" uuid="a993afb8-c412-4faf-a96c-d523bb4ea363"/>
+				<text><![CDATA[transport_info_Units]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="46" height="15" uuid="57963a2f-de1b-439d-a78f-cffd7592d9ee"/>
+				<text><![CDATA[transport_info_Destination]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="230" y="19" width="46" height="15" uuid="4c0941db-db13-46f6-9688-051721c3a675"/>
+				<text><![CDATA[transport_info_Trip_Start_Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="46" height="15" uuid="53fd9bc5-bdd7-4e07-976a-5abc9d839658"/>
+				<text><![CDATA[transport_info_Trip_End_Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="322" y="19" width="46" height="15" uuid="a0a9f55e-9126-4c9c-8651-f9bc3cafbaa2"/>
+				<text><![CDATA[transport_info_Driver_Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="46" height="15" uuid="15eecc4d-8ab6-4819-8090-dc8707141b60"/>
+				<text><![CDATA[transport_info_Cust_Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="19" width="46" height="15" uuid="6499c4f4-afb3-4155-8cac-8adf3317f0ec"/>
+				<text><![CDATA[transport_info_Cust_Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="46" height="15" uuid="262a182e-e5e7-47a2-bbd9-58183329f5be"/>
+				<text><![CDATA[transport_info_Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="506" y="19" width="46" height="15" uuid="4fb3ace3-5628-4080-be45-4928250e5e96"/>
+				<text><![CDATA[transport_info_Transport_Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="4838f118-fb2c-4ca8-aeb2-1d854490da85"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="46" height="15" uuid="78d9e9dd-4df7-4ad5-a2f1-59749b7d12e6"/>
+				<textFieldExpression><![CDATA[$F{transport_info_uni_Slip_No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="46" y="0" width="46" height="15" uuid="e2720a88-d350-42f8-8996-fd51d2ef1339"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="46" height="15" uuid="ff9e252a-53e1-4a5e-b489-bc125173212d"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Vehicle_No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="138" y="0" width="46" height="15" uuid="3f6ff79a-70ab-41ff-9927-ff3c5875f095"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Units}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="46" height="15" uuid="16108dd1-fbcb-4492-ac25-a4a90696834e"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Destination}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="230" y="0" width="46" height="15" uuid="e95dccd7-3103-4641-903b-1ef94e8d14e4"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Trip_Start_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="46" height="15" uuid="5ef72853-13d0-42b5-84f1-4256aca7447e"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Trip_End_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="322" y="0" width="46" height="15" uuid="e2bd3be0-ea93-48e3-b66f-078919255f96"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Driver_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="46" height="15" uuid="5b36111a-7dca-4a49-8944-c8d719f6698e"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Cust_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="0" width="46" height="15" uuid="f84c9ef8-a713-4ec7-9446-e9c232ec6eb9"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Cust_Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="46" height="15" uuid="d9738e4f-a2f9-48dd-abb9-a0c50b5f6db6"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Contact}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="506" y="0" width="46" height="15" uuid="5dc96721-f7c9-4494-bccd-70370ec785c3"/>
+				<textFieldExpression><![CDATA[$F{transport_info_Transport_Amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="d934c043-42ca-418b-9b07-b50be68f16e5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="99db1ba2-00d0-439c-b628-c347262266da"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="5294994e-3c96-4652-bf64-6d2f2f974fff"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="73cc8311-adef-4d8b-835c-9d282a56ee2c"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

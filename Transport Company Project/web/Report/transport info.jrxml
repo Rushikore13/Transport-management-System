@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="transport info" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="01d48b82-4cc2-48da-b460-dd171be212ef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="date" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="date1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     transport_info.`uni_Slip_No` AS transport_info_uni_Slip_No,
+     transport_info.`Model` AS transport_info_Model,
+     transport_info.`Vehicle_No` AS transport_info_Vehicle_No,
+     transport_info.`Units` AS transport_info_Units,
+     transport_info.`Destination` AS transport_info_Destination,
+     transport_info.`Trip_Start_Date` AS transport_info_Trip_Start_Date,
+     transport_info.`Trip_End_Date` AS transport_info_Trip_End_Date,
+     transport_info.`Driver_Name` AS transport_info_Driver_Name,
+     transport_info.`Cust_Name` AS transport_info_Cust_Name,
+     transport_info.`Cust_Address` AS transport_info_Cust_Address,
+     transport_info.`Transport_Amount` AS transport_info_Transport_Amount
+FROM
+     `transport_info` transport_info where Trip_Start_Date between $P{date} and $P{date1};]]>
+	</queryString>
+	<field name="transport_info_uni_Slip_No" class="java.lang.Integer"/>
+	<field name="transport_info_Model" class="java.lang.String"/>
+	<field name="transport_info_Vehicle_No" class="java.lang.String"/>
+	<field name="transport_info_Units" class="java.lang.String"/>
+	<field name="transport_info_Destination" class="java.lang.String"/>
+	<field name="transport_info_Trip_Start_Date" class="java.sql.Date"/>
+	<field name="transport_info_Trip_End_Date" class="java.sql.Date"/>
+	<field name="transport_info_Driver_Name" class="java.lang.String"/>
+	<field name="transport_info_Cust_Name" class="java.lang.String"/>
+	<field name="transport_info_Cust_Address" class="java.lang.String"/>
+	<field name="transport_info_Transport_Amount" class="java.lang.Float"/>
+	<group name="transport_info_uni_Slip_No">
+		<groupExpression><![CDATA[$F{transport_info_uni_Slip_No}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="721" height="24" forecolor="#B89F7D" backcolor="#CCCCFF" uuid="c42a2f85-1ab7-44de-89fd-7ee4fb404a7b"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="2" y="0" width="695" height="24" forecolor="#000000" backcolor="#CCCCFF" uuid="4e024175-328c-4ab8-9b99-e5969558d6e4"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{transport_info_uni_Slip_No}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<rectangle>
+					<reportElement x="725" y="3" width="77" height="24" backcolor="#FFFFFF" uuid="b54ad116-acf1-4526-8ea6-c726e751eb1a"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#9999FF" uuid="e409b179-f0bf-43ad-a2c7-a3edc6d0540b"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="8ec2b4c3-c954-4b65-a798-03f6cf3cde87"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Transport Info]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="4b39bca0-42bf-42f4-96ba-619c3dd93b8a"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CCCCFF" uuid="29baf577-422d-402e-88b3-65508c28d8b9"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#000000" uuid="40147408-8e87-40f9-8276-c127f32d666a"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="79" height="18" forecolor="#000000" backcolor="#CCCCFF" uuid="dcd02af9-f951-4531-a95d-b8088c1de019"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="65" y="0" width="79" height="18" forecolor="#000000" uuid="70a47ec8-2fe1-433b-a005-6862a296923f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="144" y="0" width="79" height="18" forecolor="#000000" uuid="3235548c-b9c7-43f5-91f7-c5b3ffa48aa1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Units]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="199" y="0" width="79" height="18" forecolor="#000000" uuid="4a0b670d-2658-4809-b6d0-2dd1f5f031d0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destination]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="278" y="0" width="79" height="18" forecolor="#000000" uuid="55a0b8de-7476-461a-aab2-2252b42c36e3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TripStartDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="370" y="0" width="79" height="18" forecolor="#000000" uuid="cfb42ff0-4ae2-4ac1-bd9d-d23627339817"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TripEndDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="459" y="0" width="79" height="18" forecolor="#000000" uuid="a2d23261-ab3b-449c-9b91-346b3fc2c804"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Driver Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="553" y="0" width="79" height="18" forecolor="#000000" uuid="8143e560-32b4-4dc6-94fe-e1ac723dee37"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cust Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="642" y="0" width="79" height="18" forecolor="#000000" backcolor="#CCCCFF" uuid="c1310a94-8092-4b5b-938d-631a2afcb338"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" backcolor="#FFFFFF" uuid="a349e26d-0acc-45d1-99e0-a39528d5ad89"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="79" height="18" uuid="f50387e6-a1a7-47e9-949c-248eb0db0fe7"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Model}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="79" y="0" width="79" height="18" uuid="b20278a0-9cd1-47c2-85fb-206ea5f798ac"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Vehicle_No}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="158" y="0" width="79" height="18" uuid="03c276e0-d6a6-4573-bc49-cea4d923b180"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Units}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="199" y="0" width="79" height="18" uuid="6dde7416-2f0f-44a9-830e-13e6ebfaa69f"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Destination}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="278" y="0" width="63" height="18" uuid="1eaf0eee-425c-4ae2-8a0f-62904578ffe5"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Trip_Start_Date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="370" y="0" width="64" height="18" uuid="c3b36133-091d-4e9f-86c0-5b1e677b0aaf"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Trip_End_Date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="459" y="0" width="79" height="18" uuid="4964d448-2e07-4a58-9f49-83ea9032f91d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Driver_Name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="553" y="0" width="79" height="18" uuid="d8b7dfac-79f7-47b2-8ec4-79e8e05dfc50"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Cust_Name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="642" y="0" width="59" height="18" uuid="000b9b07-6783-4afd-be3a-90418b284f84"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{transport_info_Transport_Amount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="af6910e2-81c7-4049-9960-2a147d0ac04e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="acec25a1-3cb1-4795-aef0-f381e12ae1ee"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="e9781ee3-cbeb-4181-bd00-c3152612367c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="e84072ee-d4ef-4c0a-a820-e51a769b33e3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="ee85c155-8532-40b0-a2c7-d2a360d8a67f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
